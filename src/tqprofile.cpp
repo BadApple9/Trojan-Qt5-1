@@ -21,7 +21,7 @@ TQProfile::TQProfile()
     totalDownloadUsage = 0;
     totalUploadUsage = 0;
     QDate currentDate = QDate::currentDate();
-    nextResetDate = QDate(currentDate.year(), currentDate.month() + 1, 1);
+    nextResetDate = currentDate.addMonths(1);
     // socks5/http only
     username = "";
     // ss/ssr/snell only
