@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-10.15]
-        qt_ver: [5.15.2]
+        qt_ver: [5.13.0]
         qt_arch: [clang_64]
     env:
       targetName: HelloActions-Qt
@@ -30,8 +30,10 @@ jobs:
           fetch-depth: 1
       - name: build macos
         run: |
-          git clone https://github.com/qt-labs/qthttpserver.git
+          git clone https://github.com/qt-labs/qthttpserver.git --branch 5.15
           cd qthttpserver
+          git clone https://gitclone.com/github.com/nodejs/http-parser
+          mv http-parser/ ./src/3rdparty/
           qmake
           make
           make install
