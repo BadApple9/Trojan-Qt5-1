@@ -37,6 +37,7 @@ jobs:
           qmake
           make -j2
           make install
+          cd ..
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install zbar qrencode boost openssl@1.1 zlib pcre
           qmake
