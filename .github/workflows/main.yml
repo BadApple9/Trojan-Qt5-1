@@ -30,7 +30,12 @@ jobs:
           fetch-depth: 1
       - name: build macos
         run: |
-          ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+          git clone https://github.com/qt-labs/qthttpserver.git
+          cd qthttpserver
+          qmake
+          make -j$(nproc)
+          make install
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install zbar qrencode boost openssl@1.1 zlib pcre
           qmake
           make -j$(nproc)
