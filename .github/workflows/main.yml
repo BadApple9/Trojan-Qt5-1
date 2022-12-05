@@ -40,6 +40,25 @@ jobs:
           cd ..
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install zbar qrencode boost openssl@1.1 zlib pcre
+          brew tap grpc/grpc
+          brew install grpc
+          git clone https://github.com/elrinor/qntp.git
+          cd qntp
+          touch qntp.pri
+          cd ..
+          mv qntp/ ./src/
+          
+          git clone https://github.com/Qv2ray/shadowsocksr-uvw.git
+          cd shadowsocksr-uvw
+          touch Shadowsocksr-uvw.pri
+          cd ..
+          mv shadowsocksr-uvw/ ./src/
+          mv qthttpserver qhttpserver
+          cd qhttpserver
+          touch qhttpserver.pri
+          cd ..
+          mkdir 3rd
+          mv qhttpserver/ ./3rd/
           qmake
           make -j2
       # 打包
