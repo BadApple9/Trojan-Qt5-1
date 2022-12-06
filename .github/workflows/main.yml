@@ -40,7 +40,7 @@ jobs:
           cd ..
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install zbar qrencode boost openssl@1.1 zlib pcre
-          brew install grpc --with-plugins --HEAD
+          brew install grpc --HEAD
           git clone https://github.com/elrinor/qntp.git
           cd qntp
           touch qntp.pri
